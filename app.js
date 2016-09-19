@@ -1,5 +1,5 @@
-var cookieParser = require('cookie-parser');
 var express = require('express');
+var cookieParser = require('cookie-parser');
 
 var admin = require('./routes/admin');
 var spotifyAuth = require('./routes/spotifyAuth');

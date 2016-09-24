@@ -1,0 +1,15 @@
+<!-- <div>hello from a partial (playlists.html)</div> -->
+<!-- <div> {{ view.playlist }} </div>
+<div> {{ view.playlist2 }} </div> -->
+<!-- <div ng-repeat="playlist in view.playlists"><img ng-src="{{ playlist.images[0].url }}"></img></div> -->
+<br><h2>Select a Playlist</h2><br>
+<!-- <div>
+  <img ng-repeat="playlist in view.playlists" ng-src="{{ playlist.images[0].url }}"></img>
+</div> -->
+<div data-ng-repeat="playlist in view.playlists">
+  <div>{{ playlist.name }}</div>
+  <img data-ng-src="{{ playlist.images[1].url }}"></img>
+  <br>
+  <br>
+</div>
+<div> {{ view.playlists }} </div>

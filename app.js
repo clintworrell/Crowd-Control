@@ -6,6 +6,7 @@ var path = require('path');
 var admin = require('./routes/admin');
 var spotifyAuth = require('./routes/spotifyAuth').router;
 var playlists = require('./api/playlists');
+var currentTrack = require('./api/currentTrack');
 
 // Environment config in .env
 require('dotenv').config();
@@ -25,6 +26,7 @@ app.use('/api/playlists', playlists);
 app.use('/api/playlists/spotifytest', playlists);
 app.use('/api/playlists/playlisttest', playlists);
 app.use('/api/playlists/curltest', playlists);
+app.use('/api/current_track', currentTrack);
 
 app.listen(PORT, '0.0.0.0', function() {
   console.log(`Server is listening on port ${PORT}...`);

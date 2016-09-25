@@ -7,9 +7,11 @@
   <img ng-repeat="playlist in view.playlists" ng-src="{{ playlist.images[0].url }}"></img>
 </div> -->
 <div data-ng-repeat="playlist in view.playlists">
-  <div>{{ playlist.name }}</div>
-  <img data-ng-src="{{ playlist.images[1].url }}"></img>
-  <br>
-  <br>
+  <a ng-href="/playlist/{{playlist.id}}">
+    <div>{{ playlist.name }}</div>
+    <img data-ng-src="{{ playlist.images[1].url }}"></img>
+  </a>
+    <br>
+    <br>
 </div>
 <div> {{ view.playlists }} </div>

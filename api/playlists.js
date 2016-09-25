@@ -11,7 +11,6 @@ router.get('/', function(req, res) {
     headers: { 'Authorization': 'Bearer ' + spotifyAuth.accessToken },
     json: true
   };
-  console.log(options);
 
   request.get(options, function(error, response, body) {
     res.send(body);

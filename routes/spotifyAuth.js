@@ -8,6 +8,8 @@ var SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 var SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 var SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI;
 
+var spotifyAuth = {};
+
 router.get('/', function(req, res) {
   var stateKey = 'spotify_auth_state';
   var code = req.query.code || null;
@@ -41,21 +43,23 @@ router.get('/', function(req, res) {
       };
       request.post(authOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
-          spotifyAccessToken = body.access_token;
-          var refreshToken = body.refresh_token;
-
+          spotifyAuth.accessToken = body.access_token;
+          spotifyAuth.refreshToken = body.refresh_token;
           var options = {
             url: 'https://api.spotify.com/v1/me',
-            headers: { 'Authorization': 'Bearer ' + spotifyAccessToken },
+            headers: { 'Authorization': 'Bearer ' + spotifyAuth.accessToken },
             json: true
           };
+
           request.get(options, function(error, response, body) {
-            console.log(body);
+            spotifyAuth.userId = body.id;
+            res.send("Application has been authenticated with Spotify");
           });
-          res.send("Application has been authenticated with Spotify");
         }
       });
+
     }
 });
 
-module.exports = router;
+module.exports.router = router;
+module.exports.spotifyAuth = spotifyAuth;

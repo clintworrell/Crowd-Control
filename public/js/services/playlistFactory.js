@@ -13,5 +13,9 @@ app.factory('playlistFactory', function($http) {
       $http.get('/api/playlists').success(callback);
     };
 
+    factory.getPlaylist = function (playlistId, callback) {
+      $http.get(`/api/playlist/${playlistId}`).success(callback);
+    };
+
     return factory;
 });

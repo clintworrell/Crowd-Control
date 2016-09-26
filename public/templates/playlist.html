@@ -1,0 +1,9 @@
+<div data-ng-repeat="track in view.playlist">
+  <img ng-src="{{ track.track.album.images[2].url }}"></img><br>
+  <strong>{{ track.track.name }}</strong>
+<div data-ng-repeat="artist in view.playlist[$index].track.artists">{{ artist.name }}</div>
+</div>
+<br>
+<br>
+<br>
+<!-- <div>{{ view.playlist }}</div> -->

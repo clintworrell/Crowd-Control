@@ -6,5 +6,10 @@ app.config(function ($routeProvider) {
       {
         controller: 'PlaylistsController',
         templateUrl: '../templates/playlists.html'
+      })
+    .when('/playlist/:playlistId',
+      {
+        controller: "PlaylistController",
+        templateUrl: '../templates/playlist.html'
       });
 });

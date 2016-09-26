@@ -5,6 +5,7 @@ var path = require('path');
 
 var admin = require('./routes/admin');
 var spotifyAuth = require('./routes/spotifyAuth').router;
+var playlist = require('./api/playlist');
 var playlists = require('./api/playlists');
 var currentTrack = require('./api/currentTrack');
 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', express.static('public/index.html'));
 app.use('/admin', admin);
 app.use('/spotify_auth_callback', spotifyAuth);
+app.use('/api/playlist', playlist);
 app.use('/api/playlists', playlists);
 app.use('/api/playlists/spotifytest', playlists);
 app.use('/api/playlists/playlisttest', playlists);

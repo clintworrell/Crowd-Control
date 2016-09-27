@@ -1,3 +1,31 @@
+<div>Playing: {{ view.currentTrack }}
+
+
+<h3>Add Track to Playlist</h3>
+<form ng-submit="view.spotifySearch()">
+  <input ng-model="view.searchQuery" type="search" placeholder="Artist name..."></input>
+  <button class="btn" type="submit">Search</button>
+</form>
+<!-- <form id="artist-search" action="{{ '#/playlist/' + view.playlistId + '/search' }}" method="post">
+  <input ng-model="view.searchQuery" type="search" placeholder="Artist name..."></input>
+  <input type="submit" value="Search">
+</form> -->
+<h4><strong>Albums</strong></h4>
+<div id="search-results-albums" data-ng-repeat="album in view.searchResults.albums.items">
+  <img ng-src="{{album.images[2].url}}"></img>{{album.name}}
+  <div></div>
+</div>
+
+<h4><strong>Songs</strong></h4>
+<div id="search-results-albums" data-ng-repeat="track in view.searchResults.tracks.items">
+  <img ng-src="{{track.album.images[2].url}}"></img>{{track.name}}<i class="fa fa-plus" aria-hidden="true"></i>
+  <div></div>
+</div>
+
+<div> {{view.searchResults}} </div>
+
+
+<h3>Playlist Tracks</h3>
 <div data-ng-repeat="track in view.playlist">
   <img ng-src="{{ track.track.album.images[2].url }}"></img><br>
   <strong>{{ track.track.name }}</strong>
@@ -6,4 +34,4 @@
 <br>
 <br>
 <br>
-<!-- <div>{{ view.playlist }}</div> -->
+<div>{{ view.playlist }}</div>

@@ -1,4 +1,4 @@
-var app = angular.module('playlistApp', ['ngRoute']);
+var app = angular.module('playlistApp', ['ngRoute', 'emguo.poller']);
 
 app.config(function ($routeProvider) {
   $routeProvider

@@ -38,7 +38,7 @@ router.get('/', function(req, res) {
    * Scope is the permissions that the application is requesting on the user's
    * Spotify account.
   */
-  var scope = 'user-read-private user-read-email';
+  var scope = 'user-read-private user-read-email playlist-modify-public';
 
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({

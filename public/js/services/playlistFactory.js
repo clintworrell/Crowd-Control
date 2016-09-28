@@ -26,5 +26,10 @@ app.factory('playlistFactory', function($http) {
       $http.get('/api/current_track').success(callback);
     };
 
+    factory.addTrackToPlaylist = function(trackUri, playlistId, callback) {
+      // console.log(trackUri + ' - ' + playlistId);
+      $http.get(`/api/track/${trackUri}/playlist/${playlistId}`).success(callback);
+    };
+
     return factory;
 });

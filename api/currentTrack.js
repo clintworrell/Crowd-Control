@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
       var currentTrackName = recentTracks.track[0].name;
       var currentTrackArtist = recentTracks.track[0].artist['#text'];
       res.send(currentTrackName + ' - ' + currentTrackArtist);
-    } else { res.send("No track is currently playing"); }
+    } else { res.send("Playlist is offline"); }
 
   });
 });

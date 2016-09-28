@@ -1,33 +1,41 @@
-<div class="currently-playing">Playing: {{ view.currentTrack }}</div>
-
-<h3>Add Track to Playlist</h3>
-<form ng-submit="view.spotifySearch()">
-  <input ng-model="view.searchQuery" type="search" placeholder="Artist name..."></input>
-  <button class="btn" type="submit">Search</button>
-</form>
-<h4><strong>Albums</strong></h4>
-<div id="search-results-albums" data-ng-repeat="album in view.searchResults.albums.items">
-  <img ng-src="{{album.images[2].url}}"></img>{{album.name}}
-  <div></div>
+<div id="currently-playing-container">
+  <div id ="currently-playing"><h3>Now Playing</h3></div>
+  <div id="currently-playing-track-title"><strong>{{ view.currentTrackTitle }}</strong></div>
+  <div id="currently-playing-track-artist">{{ view.currentTrackArtist }}</div>
 </div>
 
-<h4><strong>Songs</strong></h4>
+<!-- <div> {{view.searchResults}} </div> -->
+
+<div id="playlist-tracks-container">
+  <h3>Playlist Tracks</h3>
+  <div class="playlist-track" data-ng-repeat="track in view.playlist">
+    <div class="playlist-track-image">
+      <img ng-src="{{ track.track.album.images[2].url }}"></img>
+    </div>
+    <div class="playlist-track-name">
+      <strong>{{ track.track.name }}</strong>
+    </div>
+  <!-- <div data-ng-repeat="artist in view.playlist[$index].track.artists">{{ artist.name }}</div> -->
+  <div class="playlist-track-artist">{{ track.track.artists[0].name }}</div>
+  <div class="float-clear"></div>
+  </div>
+</div>
+<!-- <div>{{ view.playlist }}</div> -->
+<div id="add-track-container">
+  <div id="add-track-heading"><h3>Add Track to Playlist</h3></div>
+  <form ng-submit="view.spotifySearch()">
+    <input class="small" id="track-search-box" ng-model="view.searchQuery" type="search" placeholder="Artist name..."></input>
+    <button class="btn search-button white round small" type="submit">Search</button>
+  </form>
+</div>
+
+<!-- <div id="search-results-albums" data-ng-repeat="album in view.searchResults.albums.items">
+  <div>Albums</div>
+  <img ng-src="{{album.images[2].url}}"></img>{{album.name}}
+</div> -->
+
 <div id="search-results-albums" data-ng-repeat="track in view.searchResults.tracks.items">
   <!-- <img ng-src="{{track.album.images[2].url}}"></img>{{track.name}}<i class="fa fa-plus" aria-hidden="true"></i> -->
   <img ng-src="{{track.album.images[2].url}}"></img>{{track.name}}<i ng-click="view.addTrackToPlaylist(track.uri)" class="fa fa-plus" aria-hidden="true"></i>
   <div></div>
 </div>
-
-<!-- <div> {{view.searchResults}} </div> -->
-
-
-<h3>Playlist Tracks</h3>
-<div data-ng-repeat="track in view.playlist">
-  <img ng-src="{{ track.track.album.images[2].url }}"></img><br>
-  <strong>{{ track.track.name }}</strong>
-<div data-ng-repeat="artist in view.playlist[$index].track.artists">{{ artist.name }}</div>
-</div>
-<br>
-<br>
-<br>
-<!-- <div>{{ view.playlist }}</div> -->

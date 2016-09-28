@@ -21,13 +21,19 @@ app.controller('PlaylistController', function($scope, $routeParams, $http, polle
     delay: 2000
   });
 
+  // currentTrackPoller.promise.then(null, null, function(data) {
+  //   $scope.view.currentTrack = data.data;
+  // });
+
   currentTrackPoller.promise.then(null, null, function(data) {
     $scope.view.currentTrack = data.data;
+    $scope.view.currentTrackTitle = $scope.view.currentTrack.split(' - ')[0];
+    $scope.view.currentTrackArtist = $scope.view.currentTrack.split(' - ')[1];
   });
 
   $scope.view.addTrackToPlaylist = function(trackUri) {
     playlistFactory.addTrackToPlaylist(trackUri, $scope.view.playlistId, function(data) {
-      
+
 
     });
   };

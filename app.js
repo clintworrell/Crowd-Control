@@ -9,6 +9,7 @@ var playlist = require('./api/playlist');
 var playlists = require('./api/playlists');
 var currentTrack = require('./api/currentTrack');
 var spotifySearch = require('./api/spotifySearch');
+var addTrackToPlaylist = require('./api/addTrackToPlaylist');
 
 // Environment config in .env
 require('dotenv').config();
@@ -31,6 +32,7 @@ app.use('/api/playlists/playlisttest', playlists);
 app.use('/api/playlists/curltest', playlists);
 app.use('/api/current_track', currentTrack);
 app.use('/api/spotify_search', spotifySearch);
+app.use('/api/track', addTrackToPlaylist);
 
 
 app.listen(PORT, '0.0.0.0', function() {

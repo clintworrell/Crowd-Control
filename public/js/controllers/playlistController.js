@@ -1,4 +1,4 @@
-app.controller('PlaylistController', function($scope, $routeParams, $http, $timeout, poller, playlistFactory) {
+app.controller('PlaylistController', function($scope, $routeParams, $http, poller, playlistFactory) {
   $scope.view = {};
   $scope.view.playlistId = $routeParams.playlistId;
   $scope.view.searchQuery = "";
@@ -24,6 +24,13 @@ app.controller('PlaylistController', function($scope, $routeParams, $http, $time
   currentTrackPoller.promise.then(null, null, function(data) {
     $scope.view.currentTrack = data.data;
   });
+
+  $scope.view.addTrackToPlaylist = function(trackUri) {
+    playlistFactory.addTrackToPlaylist(trackUri, $scope.view.playlistId, function(data) {
+      
+
+    });
+  };
   // playlistFactory.currentTrack(function(data) {
   //   $scope.view.currentTrack = data;
   // });

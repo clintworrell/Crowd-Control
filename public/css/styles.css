@@ -1,5 +1,55 @@
 html {
+  /*background-color: #024053;*/
   max-width: 960px;
   margin: 0 auto;
   text-align: center;
+}
+
+body {
+  /*background-color: #A757AA;
+  color: white;*/
+}
+
+#add-track-heading {
+  display: inline-block;
+  /*float: left;*/
+}
+
+.playlist-track-image {
+  float: left;
+}
+
+.playlist-track-name {
+  /*clear: both;*/
+}
+
+.float-clear {
+  clear: both;
+}
+
+.search-button {
+  display: inline-block;
+}
+
+.sound-control-header {
+  /*background-color: #C6476F;
+  color: white;*/
+}
+
+#add-track-container {
+  background: linear-gradient(to bottom right, #B52352, #EF2B35);
+  color: white;
+  padding-bottom: 15px;
+  margin: 20px 0 0 0;
+}
+
+#currently-playing-container {
+  /*background-color: #FAFAFA;*/
+  background: linear-gradient(to bottom right, #B52352, #EF2B35);
+  color: white;
+}
+
+#track-search-box {
+  display: inline-block;
+  margin-right: 5px;
 }

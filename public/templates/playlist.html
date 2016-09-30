@@ -12,12 +12,14 @@
     <div class="playlist-track-image">
       <img ng-src="{{ track.track.album.images[2].url }}"></img>
     </div>
-    <div class="playlist-track-name">
-      <strong>{{ track.track.name }}</strong>
+    <div class='playlist-track-title-and-artist'>
+      <div class="playlist-track-name">
+        <strong>{{ track.track.name }}</strong>
+      </div>
+      <div class="playlist-track-artist">{{ track.track.artists[0].name }}</div>
     </div>
+  </div>
   <!-- <div data-ng-repeat="artist in view.playlist[$index].track.artists">{{ artist.name }}</div> -->
-  <div class="playlist-track-artist">{{ track.track.artists[0].name }}</div>
-  <div class="float-clear"></div>
   </div>
 </div>
 <!-- <div>{{ view.playlist }}</div> -->
@@ -33,9 +35,17 @@
   <div>Albums</div>
   <img ng-src="{{album.images[2].url}}"></img>{{album.name}}
 </div> -->
-
-<div id="search-results-albums" data-ng-repeat="track in view.searchResults.tracks.items">
-  <!-- <img ng-src="{{track.album.images[2].url}}"></img>{{track.name}}<i class="fa fa-plus" aria-hidden="true"></i> -->
-  <img ng-src="{{track.album.images[2].url}}"></img>{{track.name}}<i ng-click="view.addTrackToPlaylist(track.uri)" class="fa fa-plus" aria-hidden="true"></i>
-  <div></div>
+<div id="search-results-container">
+  <div class="search-results-track" data-ng-repeat="track in view.searchResults.tracks.items">
+    <!-- <img ng-src="{{track.album.images[2].url}}"></img>{{track.name}}<i class="fa fa-plus" aria-hidden="true"></i> -->
+    <div class="search-result-image">
+      <img ng-src="{{track.album.images[2].url}}"></img>
+    </div>
+    <div class="search-results-title-and-artist">
+      <div class="search-result-track-name"><strong>{{track.name}}</strong></div>
+      <div class="search-result-track-artist">{{track.artists[0].name}}</div>
+    </div>
+    <!-- <div class="add-to-playlist-plus">Add  <i ng-click="view.addTrackToPlaylist(track.uri)" class="fa fa-plus" aria-hidden="true"></i></div> -->
+    <div ng-click="view.addTrackToPlaylist(track.uri)" class="add-to-playlist-plus">Add  <i class="fa fa-plus" aria-hidden="true"></i></div>
+    <!-- <div class="float-clear"></div> -->
 </div>
